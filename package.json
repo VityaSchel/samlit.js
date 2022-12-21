@@ -1,6 +1,6 @@
 {
   "name": "samlit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Browse samlit.net as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.",
   "main": "out/index.js",
   "type": "module",
@@ -14,6 +14,14 @@
     "out/*.js",
     "Banner.png"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vityaschel/samlit.js.git"
+  },
+  "homepage": "https://github.com/vityaschel/samlit.js",
+  "bugs": {
+    "url": "https://github.com/vityaschel/samlit.js/issues"
+  },
   "author": "Viktor Shchelochkov <hi@hloth.dev> (https://hloth.dev/)",
   "license": "MIT",
   "dependencies": {
