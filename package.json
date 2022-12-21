@@ -1,6 +1,6 @@
 {
   "name": "samlit",
-  "version": "1.0.5",
+  "version": "2012.0.2021-I-am-free",
   "description": "Browse samlit.net as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.",
   "main": "out/index.js",
   "type": "module",
