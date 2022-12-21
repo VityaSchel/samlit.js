@@ -2,8 +2,14 @@ import * as tls from 'tls'
 
 export const tlsUtil = (host: string, port: number, options?: object): Promise<tls.TLSSocket> => new Promise((resolve, reject) => {
   try {
-    const socket = tls.connect({ port, host, servername: host, ...options }, () => resolve(socket))
-    socket.on('error', reject)
+    const socket: tls.TLSSocket = tls.connect({ port, host, servername: host, ...options }, () => {
+      socket.end()
+      resolve(socket)
+    })
+    socket.on('error', e => {
+      socket.end()
+      reject(e)
+    })
   } catch(e) {
     reject(e)
   }

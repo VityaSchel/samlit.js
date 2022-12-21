@@ -37,6 +37,17 @@ Promise<{
 }>
 ```
 
+#### getAntiDDOSStatus()
+
+Returns true if samlit.net uses Cloudflare proxy. Uses DNS lookup and official [IP ranges](https://www.cloudflare.com/ips/) to determine that.
+
+Returns:
+
+```ts
+Promise<boolean>
+```
+
+
 #### pingMarkovPasswords()
 
 Makes a request to [markov.utidteam.com](https://markov.utidteam.com) — my investigation and public article about how I hacked all Samlit students and how Markov accidentally leaked all users passwords and then threatened me with police. Returns time in milliseconds (1/1000 of second) if request was successfull.

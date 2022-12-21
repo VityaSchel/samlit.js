@@ -1,5 +1,8 @@
 import fetch from 'node-fetch'
 import { parseTLSIssuer, tlsUtil } from './util.js'
+import ipRangeCheck from 'ip-range-check'
+import dns from 'dns'
+import cloudflareIPs from './cloudflareIPs.js'
 
 export async function testConnectionSecurity(): Promise<{
   /** If certificate exists and it's valid */
@@ -9,11 +12,12 @@ export async function testConnectionSecurity(): Promise<{
   /** If redirects from http to https when connecting with port `80` */
   httpsRedirect: boolean
 }> {
-  const request = await fetch('http://samlit.net/', { method: 'OPTIONS' })
+  const request = await fetch('http://samlit.net/', { method: 'GET' })
   const httpsRedirect = request.redirected
     && request.headers.get('Location')?.startsWith('https://') 
     && request.headers.get('Location')?.includes('samlit.net')
     || false
+
   try {
     const socket = await tlsUtil('samlit.net', 443)
     const x509Certificate = socket.getPeerX509Certificate()
@@ -42,6 +46,12 @@ export async function testConnectionSecurity(): Promise<{
       throw e
     }
   }
+}
+
+/** Returns true if samlit.net uses Cloudflare proxy */
+export async function getAntiDDOSStatus(): Promise<boolean> {
+  const ip = await new Promise<string>(resolve => dns.lookup('samlit.net', (_, address) => resolve(address))) 
+  return ipRangeCheck(ip, cloudflareIPs)
 }
 
 export function pingMarkovPasswords(): PingResult {

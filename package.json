@@ -1,7 +1,7 @@
 {
   "name": "samlit",
-  "version": "1.0.1",
-  "description": "Browse <samlit.net> as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.",
+  "version": "1.0.2",
+  "description": "Browse samlit.net as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.",
   "main": "out/index.js",
   "type": "module",
   "scripts": {
@@ -10,11 +10,15 @@
     "start": "node out/index.js",
     "test": "jest"
   },
-  "files": ["out/*.js"],
+  "files": [
+    "out/*.js",
+    "banner.png"
+  ],
   "author": "Viktor Shchelochkov <hi@hloth.dev> (https://hloth.dev/)",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.0",
+    "ip-range-check": "^0.2.0",
     "node-fetch": "^3.3.0"
   },
   "devDependencies": {
