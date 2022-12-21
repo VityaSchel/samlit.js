@@ -44,4 +44,28 @@ export async function testConnectionSecurity(): Promise<{
   }
 }
 
-console.log(await testConnectionSecurity())
+export function pingMarkovPasswords(): PingResult {
+  return ping('https://markov.utidteam.com/')
+}
+
+export function ping100ReasonsSamlitHasAwfulWebsite(): PingResult {
+  return ping('https://awfulsamlitwebsite.utidteam.com/')
+}
+
+export function pingSamlitNet(): PingResult {
+  return ping('http://samlit.net/', true)
+}
+
+type PingResult = Promise<{ ok: true, time: number } | { ok: false }>
+async function ping(host, allowRedirect = false): PingResult {
+  const timer = Date.now()
+  try {
+    const request = await fetch(host)
+    const time = Date.now() - timer
+    if(request.status === 200 || (allowRedirect && request.status)) return { ok: true, time }
+    else return { ok: false }
+  } catch(e) {
+    console.error(e)
+    return { ok: false }
+  }
+}

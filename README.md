@@ -1,8 +1,10 @@
 # Samlit.js
 
-Browse <samlit.net> as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.
+Browse [samlit.net](http://samlit.net) as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.
 
-![Banner](banner.png)
+![Banner](./banner.png)
+
+Warning! The text below is saturated with with bile and hatred. This whole package is a joke as SamLIT itself. Do not take it seriously and never contact me about it.
 
 ## Installation
 
@@ -33,6 +35,35 @@ Promise<{
   /** If redirects from http to https when connecting with port `80` */
   httpsRedirect: boolean
 }>
+```
+
+#### pingMarkovPasswords()
+
+Makes a request to [markov.utidteam.com](https://markov.utidteam.com) — my investigation and public article about how I hacked all Samlit students and how Markov accidentally leaked all users passwords and then threatened me with police. Returns time in milliseconds (1/1000 of second) if request was successfull.
+
+Returns:
+
+```ts
+Promise<{ ok: true, time: number } | { ok: false }>
+```
+
+#### ping100ReasonsSamlitHasAwfulWebsite()
+
+Makes a request to [awfulsamlitwebsite.utidteam.com](https://awfulsamlitwebsite.utidteam.com) — my public article where I described in detail exactly 100 reasons why SamLIT school has an awful designed website. Returns time in milliseconds (1/1000 of second) if request was successfull.
+
+Returns:
+
+```ts
+Promise<{ ok: true, time: number } | { ok: false }>
+```
+#### pingSamlitNet()
+
+Makes a request to [samlit.net](http://samlit.net) itself. Do not use too often — may cause servers to crash, flicker lights in school's campus or even earn a salary bonus to Markov for dodging DDOS attack this month. Returns time in milliseconds (1/1000 of second) if request was successfull.
+
+Returns:
+
+```ts
+Promise<{ ok: true, time: number } | { ok: false }>
 ```
 
 ## License
