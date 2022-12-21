@@ -2,7 +2,7 @@
 
 Browse [samlit.net](http://samlit.net) as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.
 
-![Banner](https://raw.githubusercontent.com/VityaSchel/samlit.js/master/banner.png)
+![Banner](./master_banner.png)
 
 Warning! The text below is saturated with with bile and hatred. This whole package is a joke as SamLIT itself. Do not take it seriously and never contact me about it.
 

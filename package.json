@@ -1,6 +1,6 @@
 {
   "name": "samlit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Browse samlit.net as if you were a script. Brought to you by SamLIT's slave and SamLIT escapist.",
   "main": "out/index.js",
   "type": "module",
@@ -12,7 +12,7 @@
   },
   "files": [
     "out/*.js",
-    "Banner.png"
+    "master_banner.png"
   ],
   "repository": {
     "type": "git",
