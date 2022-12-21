@@ -3,6 +3,7 @@ import { parseTLSIssuer, tlsUtil } from './util.js'
 import ipRangeCheck from 'ip-range-check'
 import dns from 'dns'
 import cloudflareIPs from './cloudflareIPs.js'
+import { parse, HTMLElement } from 'node-html-parser'
 
 export async function testConnectionSecurity(): Promise<{
   /** If certificate exists and it's valid */
@@ -79,3 +80,16 @@ async function ping(host, allowRedirect = false): PingResult {
     return { ok: false }
   }
 }
+
+export async function getHomework(): Promise<{ bank: string, zadanie: string }> {
+  const request = await fetch('https://samlit.net/component/sppagebuilder/?view=page&id=214')
+  const response = await request.text()
+  const root = parse(response)
+  const bankLink = (root.querySelector('a:contains(Bank)') as HTMLElement).getAttribute('href')
+  if(!bankLink) throw new Error('Couldn\'t find Bank link')
+  const zadanieLink = (root.querySelector('a:contains(Zadanie)') as HTMLElement).getAttribute('href')
+  if(!zadanieLink) throw new Error('Couldn\'t find Zadanie link')
+  return { bank: bankLink, zadanie: zadanieLink }
+}
+
+console.log(await getHomework())
