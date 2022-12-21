@@ -6,5 +6,5 @@
     },
     "target": "es2017"
   },
-  "minify": true
+  "minify": false
 }
