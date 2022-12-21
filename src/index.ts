@@ -91,5 +91,3 @@ export async function getHomework(): Promise<{ bank: string, zadanie: string }> 
   if(!zadanieLink) throw new Error('Couldn\'t find Zadanie link')
   return { bank: bankLink, zadanie: zadanieLink }
 }
-
-console.log(await getHomework())
